@@ -2,12 +2,12 @@
    SOLFITNESS ACADEMIA — Landing page
    Patos - PB
    -------------------------------------------------------------------------
-   1. Tokens          6. Hero            11. Localização
-   2. Base            7. Diferenciais    12. Contato
-   3. Utilitários     8. Galeria         13. Busca
-   4. Botões          9. Experiência     14. Rodapé
-   5. Header/Nav     10. Avaliações      15. Flutuantes / Lightbox
-   16. Animações      17. Responsivo
+    1. Tokens         7. Diferenciais   13. Contato
+    2. Base           8. Galeria        14. Rodapé
+    3. Utilitários    9. Experiência    15. Flutuantes / Lightbox
+    4. Botões        10. Avaliações     16. Animações
+    5. Header / Nav  11. CTA            17. Responsivo
+    6. Hero          12. Localização    18. Preferências do usuário
    ========================================================================= */
 
 /* ============================ 1. TOKENS ================================= */
@@ -25,11 +25,12 @@
   --muted:         #a5a5b0;
   --muted-2:       #74747f;
 
-  /* Marca — cor de destaque (revisar quando a logo oficial for aplicada) */
-  --accent:        #ff7a00;
-  --accent-soft:   #ffb02e;
+  /* Marca — laranja extraído da logo oficial (#FD5503) */
+  --accent:        #fd5503;
+  --accent-soft:   #ff8a3b;
+  --star:          #ffb400;
   --accent-ink:    #0a0a0b;
-  --accent-glow:   rgba(255, 122, 0, .28);
+  --accent-glow:   rgba(253, 85, 3, .30);
 
   /* WhatsApp */
   --wa:            #25d366;
@@ -40,7 +41,7 @@
   --font-body:     "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   /* Métricas */
-  --header-h:      84px;
+  --header-h:      94px;
   --radius:        16px;
   --radius-lg:     24px;
   --gutter:        clamp(20px, 5vw, 40px);
@@ -169,7 +170,7 @@ button { font: inherit; color: inherit; }
 .accent { color: var(--accent); }
 
 .stars {
-  color: var(--accent-soft);
+  color: var(--star);
   letter-spacing: .12em;
   font-size: 14px;
   line-height: 1;
@@ -257,7 +258,7 @@ a[data-instagram].is-disabled {
   border-bottom: 1px solid transparent;
 }
 .site-header.is-stuck {
-  height: 70px;
+  height: 76px;
   background: rgba(8, 8, 10, .86);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -279,12 +280,12 @@ a[data-instagram].is-disabled {
   z-index: 101;
 }
 .brand__logo {
-  height: 42px;
+  height: 58px;
   width: auto;
   object-fit: contain;
   transition: height .35s var(--ease);
 }
-.site-header.is-stuck .brand__logo { height: 36px; }
+.site-header.is-stuck .brand__logo { height: 48px; }
 
 .nav {
   display: flex;
@@ -485,7 +486,7 @@ a[data-instagram].is-disabled {
 }
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 122, 0, .38);
+  border-color: rgba(253, 85, 3, .38);
   background: var(--surface-2);
 }
 .card:hover::before { opacity: 1; }
@@ -497,8 +498,8 @@ a[data-instagram].is-disabled {
   height: 54px;
   margin-bottom: 24px;
   border-radius: 15px;
-  background: rgba(255, 122, 0, .1);
-  border: 1px solid rgba(255, 122, 0, .22);
+  background: rgba(253, 85, 3, .1);
+  border: 1px solid rgba(253, 85, 3, .22);
   color: var(--accent);
 }
 .card__icon svg { width: 26px; height: 26px; }
@@ -550,7 +551,7 @@ a[data-instagram].is-disabled {
   opacity: 0;
   transition: opacity .4s var(--ease);
 }
-.gallery__btn:hover { border-color: rgba(255, 122, 0, .45); }
+.gallery__btn:hover { border-color: rgba(253, 85, 3, .45); }
 .gallery__btn:hover img { transform: scale(1.06); }
 .gallery__btn:hover::after { opacity: 1; }
 
@@ -594,7 +595,7 @@ a[data-instagram].is-disabled {
   position: relative;
   padding-block: var(--section-y);
   background:
-    radial-gradient(90% 120% at 12% 0%, rgba(255, 122, 0, .1), transparent 62%),
+    radial-gradient(90% 120% at 12% 0%, rgba(253, 85, 3, .1), transparent 62%),
     var(--bg);
   overflow: hidden;
 }
@@ -712,7 +713,7 @@ a[data-instagram].is-disabled {
 }
 .review:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 122, 0, .3);
+  border-color: rgba(253, 85, 3, .3);
 }
 
 .review__mark {
@@ -722,7 +723,7 @@ a[data-instagram].is-disabled {
   font-family: var(--font-display);
   font-size: 84px;
   line-height: 1;
-  color: rgba(255, 122, 0, .16);
+  color: rgba(253, 85, 3, .16);
   pointer-events: none;
 }
 
@@ -775,7 +776,7 @@ a[data-instagram].is-disabled {
   translate: -50% -50%;
   width: min(900px, 130%);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(255, 122, 0, .18), transparent 62%);
+  background: radial-gradient(circle, rgba(253, 85, 3, .18), transparent 62%);
   pointer-events: none;
 }
 .cta__inner { position: relative; }
@@ -889,7 +890,7 @@ a[data-instagram].is-disabled {
   background: var(--surface-2);
 }
 .contact__card--wa:hover { border-color: rgba(37, 211, 102, .5); }
-.contact__card--ig:hover { border-color: rgba(255, 122, 0, .5); }
+.contact__card--ig:hover { border-color: rgba(253, 85, 3, .5); }
 
 .contact__ico {
   display: grid;
@@ -908,8 +909,8 @@ a[data-instagram].is-disabled {
 }
 .contact__card--ig .contact__ico {
   color: var(--accent);
-  background: rgba(255, 122, 0, .1);
-  border-color: rgba(255, 122, 0, .25);
+  background: rgba(253, 85, 3, .1);
+  border-color: rgba(253, 85, 3, .25);
 }
 
 .contact__body { display: grid; gap: 3px; }
@@ -930,202 +931,7 @@ a[data-instagram].is-disabled {
 }
 .contact__card:hover .contact__arrow { transform: translateX(6px); color: var(--accent); }
 
-/* ============================ 14. BUSCA =============================== */
-.finder {
-  padding-block: var(--section-y);
-  background:
-    radial-gradient(70% 90% at 50% 0%, rgba(255, 122, 0, .08), transparent 60%),
-    var(--bg-alt);
-  border-top: 1px solid var(--line);
-  scroll-margin-top: var(--header-h);
-}
-.finder__inner { display: grid; justify-items: center; }
-.finder .section__head { text-align: center; max-width: 720px; }
-.finder .eyebrow { justify-content: center; }
-.finder .section__lead { margin-inline: auto; }
-
-.finder__box { width: min(700px, 100%); }
-
-.search { position: relative; }
-
-.search__field {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--line-strong);
-  border-radius: 100px;
-  padding: 6px 8px 6px 22px;
-  transition: border-color .3s var(--ease), box-shadow .3s var(--ease),
-              background-color .3s var(--ease);
-}
-.search__field:focus-within {
-  border-color: var(--accent);
-  background: var(--surface-2);
-  box-shadow: 0 0 0 4px rgba(255, 122, 0, .13);
-}
-
-.search__icon {
-  width: 21px;
-  height: 21px;
-  flex: none;
-  color: var(--muted-2);
-  transition: color .3s var(--ease);
-}
-.search__field:focus-within .search__icon { color: var(--accent); }
-
-.search__input {
-  flex: 1;
-  min-width: 0;
-  background: none;
-  border: 0;
-  outline: none;
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  padding: 16px 14px;
-}
-.search__input::placeholder { color: var(--muted-2); }
-
-.search__clear {
-  width: 38px;
-  height: 38px;
-  flex: none;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .06);
-  color: var(--muted);
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  transition: background-color .25s var(--ease), color .25s var(--ease);
-}
-.search__clear:hover { background: rgba(255, 255, 255, .14); color: var(--text); }
-
-.search__suggestions {
-  position: absolute;
-  z-index: 20;
-  top: calc(100% + 10px);
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding: 8px;
-  list-style: none;
-  background: var(--surface-2);
-  border: 1px solid var(--line-strong);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  animation: dropIn .22s var(--ease) both;
-}
-
-.search__suggestions li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  border-radius: 14px;
-  font-size: 15px;
-  color: var(--muted);
-  cursor: pointer;
-  transition: background-color .2s var(--ease), color .2s var(--ease);
-}
-.search__suggestions li:hover,
-.search__suggestions li[aria-selected="true"] {
-  background: rgba(255, 122, 0, .12);
-  color: var(--text);
-}
-.search__suggestions li svg { width: 18px; height: 18px; flex: none; color: var(--accent); }
-.search__suggestions mark {
-  background: none;
-  color: var(--accent-soft);
-  font-weight: 700;
-}
-
-.search__chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 18px;
-}
-.chip {
-  padding: 9px 18px;
-  border: 1px solid var(--line-strong);
-  border-radius: 100px;
-  background: rgba(255, 255, 255, .03);
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .25s var(--ease);
-}
-.chip:hover {
-  color: var(--accent-ink);
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-.search__results { margin-top: 26px; display: grid; gap: 14px; }
-
-.result {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 22px 24px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  animation: riseIn .4s var(--ease) both;
-}
-.result__ico {
-  display: grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
-  flex: none;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-}
-.result__ico svg { width: 26px; height: 26px; }
-.result--wa .result__ico { color: var(--wa); background: rgba(37, 211, 102, .12); }
-.result--ig .result__ico { color: var(--accent); background: rgba(255, 122, 0, .1); }
-
-.result__body { flex: 1; min-width: 0; }
-.result__body h3 {
-  font-size: 1.32rem;
-  letter-spacing: 0;
-  margin-bottom: 4px;
-}
-.result__body p {
-  margin: 0;
-  font-size: 14px;
-  color: var(--muted);
-}
-.result__note {
-  display: block;
-  margin-top: 6px;
-  font-size: 12.5px;
-  color: var(--accent-soft);
-}
-
-.result__empty {
-  padding: 34px 26px;
-  text-align: center;
-  background: var(--surface);
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius-lg);
-  animation: riseIn .4s var(--ease) both;
-}
-.result__empty strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.result__empty p { margin: 0; font-size: 14.5px; color: var(--muted); }
-
-/* ============================ 15. RODAPÉ ============================== */
+/* ============================ 14. RODAPÉ ============================== */
 .footer {
   background: var(--bg);
   border-top: 1px solid var(--line);
@@ -1139,7 +945,7 @@ a[data-instagram].is-disabled {
   padding-bottom: 52px;
 }
 
-.footer__logo { height: 40px; width: auto; object-fit: contain; margin-bottom: 20px; }
+.footer__logo { height: 62px; width: auto; object-fit: contain; margin-bottom: 20px; }
 
 .footer__desc {
   color: var(--muted);
@@ -1186,7 +992,7 @@ a[data-instagram].is-disabled {
 }
 .footer__bottom p { margin: 0; }
 
-/* ==================== 16. FLUTUANTES / LIGHTBOX ======================== */
+/* ==================== 15. FLUTUANTES / LIGHTBOX ======================== */
 .fab {
   position: fixed;
   right: 24px;
@@ -1305,7 +1111,7 @@ a[data-instagram].is-disabled {
 .lightbox__nav--prev { left: 20px; }
 .lightbox__nav--next { right: 20px; }
 
-/* =========================== 17. ANIMAÇÕES ============================= */
+/* =========================== 16. ANIMAÇÕES ============================= */
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -1322,12 +1128,8 @@ a[data-instagram].is-disabled {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: none; }
 }
-@keyframes dropIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: none; }
-}
 
-/* =========================== 18. RESPONSIVO ============================ */
+/* =========================== 17. RESPONSIVO ============================ */
 @media (max-width: 1024px) {
   .experience__grid { grid-template-columns: 1fr; }
   .experience__media { max-width: 560px; }
@@ -1338,7 +1140,7 @@ a[data-instagram].is-disabled {
 }
 
 @media (max-width: 860px) {
-  :root { --header-h: 72px; }
+  :root { --header-h: 78px; }
 
   .burger { display: grid; }
 
@@ -1404,12 +1206,9 @@ a[data-instagram].is-disabled {
   .contact__card { padding: 24px 20px; gap: 16px; }
   .contact__ico { width: 54px; height: 54px; }
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
-  .result { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .result .btn { width: 100%; }
-  .search__input { font-size: 16px; padding: 14px 12px; }
 }
 
-/* ===================== 19. PREFERÊNCIAS DO USUÁRIO ===================== */
+/* ===================== 18. PREFERÊNCIAS DO USUÁRIO ===================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -1422,6 +1221,6 @@ a[data-instagram].is-disabled {
 }
 
 @media print {
-  .site-header, .fab, .mobile-cta, .hero__scroll, .lightbox, .finder { display: none !important; }
+  .site-header, .fab, .mobile-cta, .hero__scroll, .lightbox { display: none !important; }
   body { background: #fff; color: #000; }
 }
