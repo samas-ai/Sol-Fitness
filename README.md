@@ -73,23 +73,20 @@ Tudo fica no **topo de `assets/js/main.js`**, no objeto `CONFIG`:
 var CONFIG = {
   whatsapp: '5583986625760',
   whatsappMensagem: 'Olá! Conheci a Solfitness Academia pelo site e gostaria de saber mais.',
-  instagram: '',   // <-- preencher quando o perfil oficial for confirmado
+  instagram: 'https://www.instagram.com/solfitness.academia/',
   endereco: 'Solfitness Academia, BR-230, 323 - Salgadinho, Patos - PB, 58700-070'
 };
 ```
 
-### Instagram — única pendência de conteúdo
+### Instagram
 
-O perfil oficial ainda não foi informado, então nenhum link foi inventado.
-Enquanto `instagram` estiver vazio (`''`), os botões de Instagram do site
-aparecem esmaecidos, sem link, com `aria-disabled`, e o texto do card muda
-para "Perfil oficial em breve".
+O perfil oficial está configurado: `@solfitness.academia`. Os dois botões de
+Instagram da página (card de contato e rodapé) abrem em nova aba, com
+`rel="noopener noreferrer"`.
 
-Para ativar, basta preencher a URL completa — nada mais precisa ser alterado:
-
-```js
-instagram: 'https://www.instagram.com/usuario_oficial/',
-```
+Se um dia o perfil mudar ou precisar sair do ar, basta deixar o campo vazio
+(`''`) — os botões voltam sozinhos ao estado esmaecido, com o texto "Perfil
+oficial em breve", sem link quebrado na página.
 
 ---
 
@@ -245,7 +242,7 @@ Checklist final:
 - [x] Favicon e imagem de compartilhamento gerados a partir da logo
 - [x] Fotos reais aplicadas, com `alt` e legendas descritivos
 - [ ] Foto dedicada para a seção "A experiência" (hoje repete a do topo)
-- [ ] `CONFIG.instagram` preenchido
+- [x] `CONFIG.instagram` preenchido
 - [ ] `SEU-DOMINIO.com.br` substituído nos 3 arquivos
 - [ ] HTTPS ativo
 - [ ] Perfil do Google Empresas apontando para o site

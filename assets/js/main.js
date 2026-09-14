@@ -16,15 +16,11 @@
     whatsappMensagem: 'Olá! Conheci a Solfitness Academia pelo site e gostaria de saber mais.',
 
     /* -------------------------------------------------------------------
-       INSTAGRAM OFICIAL — deixe vazio ('') enquanto o perfil não for
-       confirmado. Assim que souber o @ oficial, preencha a URL completa:
-
-         instagram: 'https://www.instagram.com/usuario_oficial/'
-
-       Enquanto estiver vazio, os botões de Instagram ficam desativados e
-       sinalizados como "em breve" — nenhum link inventado é publicado.
+       INSTAGRAM OFICIAL — se algum dia precisar desativar, basta deixar
+       vazio (''): os botões voltam a ficar esmaecidos e sinalizados como
+       "Perfil oficial em breve", sem link quebrado na página.
        ------------------------------------------------------------------- */
-    instagram: '',
+    instagram: 'https://www.instagram.com/solfitness.academia/',
 
     /* Endereço usado no botão "Como chegar" */
     endereco: 'Solfitness Academia, BR-230, 323 - Salgadinho, Patos - PB, 58700-070'
