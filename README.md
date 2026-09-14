@@ -30,15 +30,26 @@ Sol Fitness/
     ├── css/style.css       estilos
     ├── js/main.js          [2] configuração no topo do arquivo
     └── img/
-        ├── solfitness-logo.png   ORIGINAL da logo (1894x830) — não usado na página
-        ├── logo-solfitness.png   logo do site, derivada do original
+        ├── hero.webp             foto do topo (e da seção "A experiência")
+        ├── estrutura-1.webp      galeria
+        ├── estrutura-3.webp      galeria
+        ├── estrutura-4.webp      galeria (única em retrato)
+        ├── estrutura-5.webp      galeria
+        ├── estrutura-6.webp      galeria
+        ├── logo-solfitness.png   logo do site
         ├── favicon.png           ícone (símbolo da logo sobre fundo escuro)
         ├── apple-touch-icon.png  ícone para iOS
         ├── og-image.jpg          imagem de compartilhamento
-        ├── hero.svg              [3] placeholder
-        ├── experiencia.svg       [3] placeholder
-        └── galeria-1..6.svg      [3] placeholders
+        │
+        ├── solfitness-logo.png        ORIGINAL da logo (1894x830)
+        ├── Foto-do-ambiente-hero.png  ORIGINAL da foto do topo
+        └── estrutura-N.png            ORIGINAIS das fotos (5 arquivos)
 ```
+
+Os arquivos marcados como ORIGINAL não são carregados pela página. Ficam no
+repositório como fonte, caso seja preciso regerar as versões web em outro
+tamanho ou formato. Somam cerca de 9 MB — se preferir mantê-los fora do Git,
+é só adicioná-los ao `.gitignore`.
 
 ---
 
@@ -123,43 +134,58 @@ Google. Contraste de `#FD5503` sobre o fundo `#08080A`: **6,2:1** (WCAG AA).
 
 ---
 
-## [3] Fotos — pendência
+## [3] Fotos
 
-Nenhuma foto da academia foi fornecida e **nenhuma imagem de terceiros foi
-baixada ou reutilizada**. Os espaços de imagem usam placeholders SVG marcados
-visualmente com a tarja "IMAGEM PROVISÓRIA".
+As fotos oficiais da academia estão aplicadas. Nenhuma imagem de terceiros foi
+baixada ou reutilizada, e nenhuma foto foi inventada.
 
-### Como substituir
+### Pipeline
 
-Coloque as fotos reais em `assets/img/` e atualize os caminhos em `index.html`.
+Os arquivos chegaram em PNG (8,7 MB no total) e foram convertidos para **WebP
+qualidade 82**, na resolução nativa — sem ampliar, o que só criaria borrão.
+Resultado: **616 KB**, uma redução de 93%. O WebP tem suporte universal em
+Chrome, Safari e Edge desde 2020.
 
-| Placeholder        | Onde aparece            | Proporção sugerida | Nome sugerido      |
-|--------------------|-------------------------|--------------------|--------------------|
-| `hero.svg`         | Topo, tela cheia        | 16:9 (1920×1080)   | `hero.jpg`         |
-| `experiencia.svg`  | Seção "A experiência"   | 4:5 (1200×1500)    | `experiencia.jpg`  |
-| `galeria-1.svg`    | Galeria                 | 4:3                | `galeria-1.jpg`    |
-| `galeria-2.svg`    | Galeria                 | 4:5                | `galeria-2.jpg`    |
-| `galeria-3.svg`    | Galeria                 | 3:2                | `galeria-3.jpg`    |
-| `galeria-4.svg`    | Galeria                 | 4:5                | `galeria-4.jpg`    |
-| `galeria-5.svg`    | Galeria                 | 4:3                | `galeria-5.jpg`    |
-| `galeria-6.svg`    | Galeria                 | 1:1                | `galeria-6.jpg`    |
+| Arquivo web       | Origem                      | Dimensões | Peso   |
+|-------------------|-----------------------------|-----------|--------|
+| `hero.webp`       | `Foto-do-ambiente-hero.png` | 1280×960  | 104 KB |
+| `estrutura-1.webp`| `estrutura-1.png`           | 1280×960  | 125 KB |
+| `estrutura-3.webp`| `estrutura-3.png`           | 1280×960  | 114 KB |
+| `estrutura-4.webp`| `estrutura-4.png`           | 765×1020  |  67 KB |
+| `estrutura-5.webp`| `estrutura-5.png`           | 1280×960  |  84 KB |
+| `estrutura-6.webp`| `estrutura-6.png`           | 1280×960  | 122 KB |
 
-Ao trocar cada imagem, **atualize também**:
+A numeração segue a dos arquivos que você enviou — não existe `estrutura-2`,
+e esse vão foi mantido de propósito para a correspondência ficar óbvia.
 
-1. o atributo `alt` — hoje está descrito como "Espaço reservado para foto…";
-   troque por uma descrição real do que aparece na foto (acessibilidade e SEO);
-2. o `data-caption` do botão da galeria — é a legenda do lightbox;
-3. os atributos `width` e `height` com as dimensões reais (evita deslocamento
-   de layout durante o carregamento);
-4. remova o parágrafo de aviso `.gallery__note` no fim da seção Estrutura.
+Para regerar depois de trocar um original:
 
-A galeria funciona com qualquer quantidade de fotos: para usar menos de 6,
-apague os blocos `<figure class="gallery__item">` sobrando — o layout masonry
-se reorganiza sozinho.
+```bash
+python -c "from PIL import Image; Image.open('assets/img/estrutura-1.png').convert('RGB').save('assets/img/estrutura-1.webp','WEBP',quality=82,method=6)"
+```
 
-**Otimização recomendada:** exporte em WebP ou JPG com largura máxima de
-1920 px e qualidade ~80. Todas as imagens abaixo da dobra já usam
-`loading="lazy"`.
+### Duas observações sobre as fotos
+
+**A seção "A experiência" reaproveita a foto do topo.** Não veio uma foto
+dedicada para ela, e é o único quadro em retrato (4:5) fora da galeria. Como a
+seção fica bem longe do topo, a repetição quase não se percebe — mas uma foto
+própria ali deixaria a página melhor. É o último item visual pendente.
+
+**A foto do topo tem 1280 px de largura.** Cobre bem telas até ~1440 px; em
+monitores maiores fica levemente suave, porque é ampliada. O véu escuro
+disfarça bastante. Se houver uma versão em resolução maior, vale substituir.
+
+### Textos alternativos
+
+Cada `alt` e cada `data-caption` descreve o que realmente aparece na foto —
+área de cardio, corredor de máquinas, peso livre e assim por diante. Ao trocar
+qualquer imagem, **atualize também esses textos**, junto com `width`, `height`
+e o `data-caption` do lightbox.
+
+A galeria funciona com qualquer quantidade de fotos: para acrescentar ou
+remover, duplique ou apague blocos `<figure class="gallery__item">`. O layout
+masonry se reorganiza sozinho — hoje, com 5 fotos, a única em retrato ocupa a
+coluna central e as três colunas ficam quase da mesma altura.
 
 ---
 
@@ -217,8 +243,8 @@ Checklist final:
 - [x] Logo oficial aplicada
 - [x] Cor de destaque extraída da logo
 - [x] Favicon e imagem de compartilhamento gerados a partir da logo
-- [ ] Fotos reais no lugar dos placeholders, com `alt` atualizado
-- [ ] Aviso `.gallery__note` removido
+- [x] Fotos reais aplicadas, com `alt` e legendas descritivos
+- [ ] Foto dedicada para a seção "A experiência" (hoje repete a do topo)
 - [ ] `CONFIG.instagram` preenchido
 - [ ] `SEU-DOMINIO.com.br` substituído nos 3 arquivos
 - [ ] HTTPS ativo

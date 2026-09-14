@@ -380,8 +380,9 @@ a[data-instagram].is-disabled {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to right, rgba(8,8,10,.94) 0%, rgba(8,8,10,.76) 45%, rgba(8,8,10,.42) 100%),
-    linear-gradient(to top, var(--bg) 2%, rgba(8,8,10,.25) 45%, rgba(8,8,10,.6) 100%);
+    linear-gradient(to right, rgba(8,8,10,.94) 0%, rgba(8,8,10,.88) 38%,
+                              rgba(8,8,10,.55) 64%, rgba(8,8,10,.22) 100%),
+    linear-gradient(to top, var(--bg) 1%, rgba(8,8,10,0) 40%, rgba(8,8,10,.30) 100%);
 }
 
 .hero__inner {
@@ -581,14 +582,6 @@ a[data-instagram].is-disabled {
 .gallery__zoom::before { width: 14px; height: 2px; }
 .gallery__zoom::after  { width: 2px; height: 14px; }
 .gallery__btn:hover .gallery__zoom { opacity: 1; transform: scale(1); }
-
-.gallery__note {
-  margin: 28px 0 0;
-  font-size: 13px;
-  color: var(--muted-2);
-  text-align: center;
-}
-.gallery__note strong { color: var(--accent-soft); }
 
 /* ========================== 9. EXPERIÊNCIA ============================= */
 .experience {
@@ -1178,8 +1171,8 @@ a[data-instagram].is-disabled {
   .hero { min-height: 92svh; }
   .hero__veil {
     background:
-      linear-gradient(to right, rgba(8,8,10,.92), rgba(8,8,10,.7)),
-      linear-gradient(to top, var(--bg) 3%, rgba(8,8,10,.35) 55%, rgba(8,8,10,.7) 100%);
+      linear-gradient(to right, rgba(8,8,10,.88), rgba(8,8,10,.74)),
+      linear-gradient(to top, var(--bg) 2%, rgba(8,8,10,.1) 46%, rgba(8,8,10,.45) 100%);
   }
   .hero__actions .btn { flex: 1 1 210px; }
   .hero__scroll { display: none; }
